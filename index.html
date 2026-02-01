@@ -1,119 +1,5153 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EdiToso — In aggiornamento</title>
-  <meta name="robots" content="noindex,nofollow" />
-  <style>
-    :root{
-      --bg:#0b0f14;
-      --card:rgba(15,22,32,.70);
-      --text:#e9eef5;
-      --muted:rgba(233,238,245,.72);
-      --line:rgba(233,238,245,.12);
-      --accent:#7ee787;
-      --accent2:#58a6ff;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(88,166,255,.18), transparent 55%),
-        radial-gradient(1200px 800px at 80% 0%, rgba(126,231,135,.14), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-    }
-    .card{
-      width:min(860px, 100%);
-      border:1px solid var(--line);
-      background:var(--card);
-      border-radius:18px;
-      padding:24px;
-      text-align:center;
-      backdrop-filter: blur(8px);
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      margin-bottom: 12px;
-    }
-    .dot{
-      width:12px;height:12px;border-radius:999px;background:var(--accent);
-      display:inline-block; box-shadow:0 0 0 6px rgba(126,231,135,.12);
-    }
-    .name{
-      font-weight:800;
-      letter-spacing:.2px;
-      font-size:18px;
-    }
-    h1{
-      margin: 8px 0 10px;
-      font-size: clamp(28px, 4.2vw, 46px);
-      line-height: 1.12;
-    }
-    p{
-      margin: 10px auto;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.65;
-      max-width: 64ch;
-    }
-    .row{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top: 16px;
-    }
-    a.btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 14px;
-      border-radius: 12px;
-      text-decoration:none;
-      border:1px solid rgba(233,238,245,.14);
-      background: rgba(11,15,20,.35);
-      color: var(--text);
-      font-weight: 800;
-    }
-    a.btn:hover{ border-color: rgba(233,238,245,.24); }
-    a.btn.primary{
-      border-color: rgba(37,211,102,.50);
-      background: rgba(37,211,102,.14);
-    }
-    small{
-      display:block;
-      margin-top: 14px;
-      color: rgba(233,238,245,.55);
-    }
-  </style>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EdiToso — Servizi editoriali (editing, bozze, impaginazione) per autori e case editrici | Simone Toso</title>
+<meta content="Servizi editoriali professionali: correzione bozze, editing, valutazione manoscritti e impaginazione per autori, self‑publisher, fumettisti e case editrici. Prezzi trasparenti e livelli chiari." name="description"/><link href="https://editoso.netlify.app/" rel="canonical"/>
+<!-- Open Graph / Social Media -->
+<meta content="EdiToso - Editing Letterario &amp; Servizi Editoriali Trasparenti | Simone Toso" property="og:title"/>
+<meta content="Servizi editoriali professionali con prezzi trasparenti: correzione bozze (2,50€/cartella), editing, valutazione manoscritti (da 59€) e impaginazione (da 249€). Per autori, self‑publisher, fumettisti e case editrici." property="og:description"/>
+<meta content="website" property="og:type"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="EdiToso - Editing Letterario &amp; Servizi Editoriali Trasparenti | Simone Toso" name="twitter:title"/>
+<meta content="Servizi editoriali professionali con prezzi trasparenti: correzione bozze (2,50€/cartella), editing, valutazione manoscritti (da 59€) e impaginazione (da 249€). Per autori, self‑publisher, fumettisti e case editrici." name="twitter:description"/>
+<!-- Favicon -->
+<!-- CSS Reset - Using unpkg CDN which has better reliability -->
+<link crossorigin="anonymous" href="https://unpkg.com/normalize.css@8.0.1/normalize.css" rel="stylesheet"/>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap');
+
+:root {
+  --petrol-dark: #1a3a4a;
+  --petrol: #2d5a6b;
+  --petrol-light: #3d7a8b;
+  --senape: #e8a832;
+  --senape-dark: #c48a20;
+  --cream: #faf8f5;
+  --white: #ffffff;
+  --text-primary: #1a3a4a;
+  --text-secondary: #2d5a6b;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--petrol-dark);
+}
+
+a {
+  color: var(--petrol);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--senape);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+  color: var(--petrol-dark);
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--senape);
+  color: var(--petrol-dark);
+  box-shadow: 0 4px 12px rgba(232, 168, 50, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--senape-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 168, 50, 0.4);
+  color: var(--petrol-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--petrol);
+  border: 2px solid var(--petrol);
+}
+
+.btn-secondary:hover {
+  background-color: var(--petrol);
+  color: var(--white);
+}
+
+.form-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top: 6px;
+}
+.form-actions .btn{
+  justify-content:center;
+  flex: 1 1 220px;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(26, 58, 74, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--petrol-dark);
+}
+
+.nav-logo span {
+  color: var(--senape);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--senape);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--petrol-dark);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background-color: var(--cream);
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.1);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.nav-open {
+  transform: translateY(0);
+}
+
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px;
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(26, 58, 74, 0.1);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Hero Section */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--petrol-dark) 0%, var(--petrol) 50%, var(--petrol-light) 100%);
+  overflow: hidden;
+  padding: 120px 20px 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg') center/cover;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(232, 168, 50, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(61, 122, 139, 0.2) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--senape);
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0ms forwards;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--white);
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 150ms forwards;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.8;
+  max-width: 700px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 300ms forwards;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 450ms forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Service Cards */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+  transition: var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--senape) 0%, var(--petrol) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 58, 74, 0.12);
+  border-color: var(--senape);
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--senape) 0%, var(--senape-dark) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--white);
+}
+
+.service-header {
+  margin-bottom: 24px;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--petrol-dark);
+}
+
+.service-price {
+  display: inline-block;
+  background: var(--senape);
+  color: var(--petrol-dark);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+.service-description {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.service-features {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.service-features li {
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-secondary);
+}
+
+.service-features i {
+  color: var(--senape);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Visual Services Section */
+.visual-services {
+  background: linear-gradient(135deg, var(--petrol-dark) 0%, var(--petrol) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(232, 168, 50, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(61, 122, 139, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.visual-services .section-title,
+.visual-services .section-subtitle {
+  color: var(--white);
+}
+
+.visual-services .service-card {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+/* Why EdiToso */
+.why-editoso {
+  background: var(--white);
+}
+
+.intro-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.why-card {
+  background: var(--cream);
+  padding: 32px 24px;
+  border-radius: 12px;
+  border-left: 4px solid var(--senape);
+  transition: var(--transition);
+}
+
+.why-card:hover {
+  transform: translateX(8px);
+  background: var(--white);
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+}
+
+.why-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.why-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--petrol-dark);
+}
+
+.why-card-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Stats Box */
+.stats-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  background: linear-gradient(135deg, var(--petrol-dark) 0%, var(--petrol) 100%);
+  padding: 48px 32px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(232, 168, 50, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--senape);
+  font-family: 'Playfair Display', serif;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+/* Audience Cards */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.audience-card {
+  background: var(--white);
+  padding: 40px 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+  text-align: center;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.audience-card:hover {
+  border-color: var(--senape);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 58, 74, 0.12);
+}
+
+.audience-icon {
+  font-size: 3rem;
+  margin-bottom: 24px;
+}
+
+.audience-title {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--petrol-dark);
+}
+
+.audience-description {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+/* Pricing Section */
+.pricing {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+}
+
+.pricing-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding: 32px;
+  background: var(--white);
+  border-radius: 12px;
+  border-left: 4px solid var(--senape);
+}
+
+.pricing-table {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(26, 58, 74, 0.1);
+  margin-bottom: 48px;
+}
+
+.pricing-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table thead {
+  background: linear-gradient(135deg, var(--petrol-dark) 0%, var(--petrol) 100%);
+  color: var(--white);
+}
+
+.pricing-table th {
+  padding: 20px 24px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.pricing-table td {
+  padding: 24px;
+  border-bottom: 1px solid rgba(26, 58, 74, 0.1);
+}
+
+.pricing-table tbody tr:hover {
+  background: var(--cream);
+}
+
+.pricing-table .service-name {
+  font-weight: 700;
+  color: var(--petrol-dark);
+  font-size: 1.05rem;
+}
+
+.pricing-table .price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--senape);
+  font-family: 'Playfair Display', serif;
+}
+
+.pricing-table .included {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* Mobile-first pricing table: cards on small screens, identical table on desktop */
+@media (max-width: 768px) {
+  .pricing-table {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .pricing-table table,
+  .pricing-table tbody,
+  .pricing-table tr,
+  .pricing-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .pricing-table thead {
+    display: none;
+  }
+
+  .pricing-table tr {
+    background: var(--white);
+    border: 1px solid rgba(26, 58, 74, 0.14);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 30px rgba(26, 58, 74, 0.08);
+  }
+
+  .pricing-table td {
+    padding: 10px 0 !important;
+    border: none !important;
+  }
+
+  .pricing-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+
+  .pricing-table td.service-name {
+    padding-top: 0 !important;
+    font-size: 1.15rem;
+  }
+
+  .pricing-table td.service-name::before {
+    display: none;
+  }
+
+  .pricing-table td.price {
+    font-size: 1.35rem;
+  }
+
+  /* Remove desktop striping/borders on mobile */
+  .pricing-table tbody tr:nth-child(even),
+  .pricing-table tbody tr:nth-child(odd) {
+    background: var(--white);
+  }
+}
+/* Pricing Examples */
+.pricing-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.pricing-example {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+  border-top: 4px solid var(--senape);
+}
+
+.example-title {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  color: var(--petrol-dark);
+}
+
+.example-breakdown {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.example-breakdown li {
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
+  border-bottom: 1px dashed rgba(26, 58, 74, 0.1);
+}
+
+.example-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 2px solid var(--senape);
+  margin-top: 16px;
+}
+
+.total-label {
+  font-weight: 700;
+  color: var(--petrol-dark);
+  font-size: 1.1rem;
+}
+
+.total-price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--senape);
+  font-family: 'Playfair Display', serif;
+}
+
+.pricing-note {
+  background: var(--cream);
+  padding: 24px;
+  border-radius: 12px;
+  margin-top: 48px;
+  border-left: 4px solid var(--petrol);
+}
+
+.pricing-note strong {
+  color: var(--petrol-dark);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.pricing-note ul {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.pricing-note li {
+  padding: 6px 0;
+  padding-left: 24px;
+  position: relative;
+  color: var(--text-secondary);
+}
+
+.pricing-note li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--senape);
+  font-weight: 700;
+}
+
+/* Why These Prices */
+.why-prices {
+  background: var(--white);
+}
+
+.why-prices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.price-reason-card {
+  background: var(--cream);
+  padding: 32px;
+  border-radius: 16px;
+  transition: var(--transition);
+  border-top: 4px solid var(--senape);
+}
+
+.price-reason-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 58, 74, 0.1);
+  background: var(--white);
+}
+
+.reason-title {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  color: var(--petrol-dark);
+}
+
+.reason-description {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.reason-means {
+  padding: 16px;
+  background: var(--white);
+  border-radius: 8px;
+  border-left: 3px solid var(--petrol);
+}
+
+.reason-means strong {
+  display: block;
+  color: var(--petrol-dark);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.reason-means p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Process Section */
+.process {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--senape) 0%, var(--senape-dark) 100%);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 16px;
+  font-family: 'Playfair Display', serif;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--petrol-dark);
+}
+
+.step-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.process-example {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+  border-left: 4px solid var(--senape);
+}
+
+.example-header {
+  margin-bottom: 24px;
+}
+
+.example-scenario {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.example-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.flow-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.flow-label {
+  background: var(--senape);
+  color: var(--petrol-dark);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.flow-text {
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.example-note {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--cream);
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.example-note i {
+  color: var(--senape);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* B2B Section */
+.b2b {
+  background: var(--white);
+}
+
+.b2b-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.b2b-service {
+  background: var(--cream);
+  padding: 32px;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.b2b-service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 58, 74, 0.1);
+  background: var(--white);
+}
+
+.b2b-service-title {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: var(--petrol-dark);
+}
+
+.b2b-service-for {
+  font-size: 0.9rem;
+  color: var(--senape);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.b2b-service-included,
+.b2b-service-diff {
+  margin-bottom: 16px;
+}
+
+.b2b-service-included strong,
+.b2b-service-diff strong {
+  display: block;
+  color: var(--petrol-dark);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.b2b-service-included p,
+.b2b-service-diff p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* B2B list (allineata alle card) */
+.b2b-list{
+  margin: 24px 0 40px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 900px){
+  .b2b-list{ grid-template-columns: 1fr 1fr; }
+}
+.b2b-list li{
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.b2b-list li::before{
+  content: "✓";
+  color: var(--senape);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+/* Email non cliccabile (anti-spam) */
+.mail-obf{
+  color: inherit;
+  font-weight: 600;
+}
+
+.b2b-models {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.b2b-model {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+  border-top: 4px solid var(--petrol);
+}
+
+.model-title {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  color: var(--petrol-dark);
+}
+
+.model-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.model-detail {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.model-detail i {
+  color: var(--senape);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.model-for {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.b2b-differentials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.differential-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--cream);
+  border-radius: 8px;
+}
+
+.differential-item i {
+  color: var(--senape);
+  flex-shrink: 0;
+}
+
+.differential-item span {
+  color: var(--petrol-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.b2b-case-study {
+  background: linear-gradient(135deg, var(--petrol-dark) 0%, var(--petrol) 100%);
+  padding: 40px;
+  border-radius: 16px;
+  color: var(--white);
+  margin-bottom: 48px;
+}
+
+.case-study-title {
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.case-study-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.case-study-item {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.case-study-item strong {
+  display: block;
+  color: var(--senape);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.case-study-item p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.b2b-cta {
+  text-align: center;
+  padding: 40px;
+  background: var(--cream);
+  border-radius: 16px;
+}
+
+.b2b-cta p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Combo Packages */
+.combos {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+}
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.combo-card {
+  background: var(--white);
+  padding: 40px 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+  border: 2px solid transparent;
+  transition: var(--transition);
+  position: relative;
+}
+
+.combo-card:hover {
+  border-color: var(--senape);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 58, 74, 0.12);
+}
+
+.combo-badge {
+  display: inline-block;
+  background: var(--senape);
+  color: var(--petrol-dark);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+.combo-title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: var(--petrol-dark);
+}
+
+.combo-included {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.combo-included li {
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.combo-included i {
+  color: var(--senape);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.combo-pricing {
+  padding: 20px;
+  background: var(--cream);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.combo-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--senape);
+  font-family: 'Playfair Display', serif;
+  display: block;
+}
+
+.discount {
+  color: var(--petrol);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 4px;
+  display: block;
+}
+
+/* FAQ Sections */
+.faq {
+  background: var(--white);
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--cream);
+  margin-bottom: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+}
+
+.faq-question {
+  padding: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+
+.faq-question h3 {
+  font-size: 1.1rem;
+  color: var(--petrol-dark);
+  margin: 0;
+}
+
+.faq-question i {
+  color: var(--senape);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.faq-answer-content {
+  padding: 0 24px 24px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Contact Section */
+.contact {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 48px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-info h3 {
+  font-size: 1.75rem;
+  color: var(--petrol-dark);
+  margin-bottom: 16px;
+}
+
+.contact-info p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--white);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.contact-method:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+}
+
+.contact-method i {
+  color: var(--senape);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-method-text strong {
+  display: block;
+  color: var(--petrol-dark);
+  margin-bottom: 4px;
+}
+
+.contact-method-text span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.contact-form {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(26, 58, 74, 0.08);
+}
+
+.contact-form h3 {
+  font-size: 1.5rem;
+  color: var(--petrol-dark);
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--petrol-dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--cream);
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--senape);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Footer */
+.footer {
+  background: var(--petrol-dark);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 64px 0 24px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-brand h3 {
+  font-size: 1.75rem;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background: var(--senape);
+  color: var(--petrol-dark);
+  transform: translateY(-4px);
+}
+
+.footer-links h4 {
+  color: var(--senape);
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+  color: var(--senape);
+  padding-left: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Animation Classes */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .hero {
+    min-height: 85vh;
+    padding: 100px 20px 60px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .services-grid,
+  .why-grid,
+  .audience-grid,
+  .combo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-table {
+    overflow-x: auto;
+  }
+  
+  .pricing-table table {
+    min-width: 600px;
+  }
+  
+  .stats-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-box {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .contact-form {
+    padding: 24px;
+  }
+}
+    
+/* WhatsApp CTA */
+.whatsapp-btn{
+  background: rgb(37, 211, 102) !important;
+  border-color: rgb(37, 211, 102) !important;
+  color: #0b1f12 !important;
+}
+.whatsapp-btn:hover{ filter: brightness(0.95); }
+
+
+/* Tier pricing blocks (cards) */
+.tier-pricing{
+  margin: 16px 0 20px;
+  padding: 14px 16px;
+  background: var(--cream);
+  border-radius: 12px;
+  border: 1px solid rgba(26, 58, 74, 0.12);
+}
+.tier-row{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(26, 58, 74, 0.15);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+.tier-row:last-child{ border-bottom: none; }
+.tier-row strong{ color: var(--petrol-dark); font-weight: 800; }
+
+/* No underline on mail */
+a.mail-link{ text-decoration: none !important; }
+a.mail-link:hover{ text-decoration: none !important; }
+
+/* Pricing table: better on small screens */
+@media (max-width: 640px){
+  .pricing-table table{ min-width: 0; }
+  .pricing-table th, .pricing-table td{ padding: 16px; }
+}
+
+/* Contact: avoid overflow on narrow screens */
+@media (max-width: 420px){
+  .contact-form{ padding: 20px; }
+  .contact-method{ padding: 14px; }
+}
+/* Email anti-spam: mostra + copia (senza mailto) */
+.email-reveal{
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.email-reveal-btn, .email-copy-btn{
+  appearance: none;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.55);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.email-reveal-btn:hover, .email-copy-btn:hover{
+  filter: brightness(0.98);
+}
+.email-reveal-value{
+  font-weight: 700;
+  color: inherit;
+}
+@media (prefers-color-scheme: dark){
+  .email-reveal-btn, .email-copy-btn{
+    border-color: rgba(233,238,245,.14);
+    background: rgba(11,15,20,.35);
+    color: rgba(233,238,245,.92);
+  }
+}
+</style>
+<meta content="https://editoso.netlify.app/" property="og:url"/><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "EdiToso - Servizi editoriali",
+  "description": "Servizi editoriali professionali: correzione bozze, editing, valutazione manoscritti e impaginazione per autori, self‑publisher, fumettisti e case editrici. Prezzi trasparenti.",
+  "areaServed": "IT",
+  "url": "https://editoso.netlify.app/",
+  "telephone": "+39 340 348 0338",
+  "sameAs": [
+    "https://www.instagram.com/",
+    "https://www.linkedin.com/",
+    "https://www.youtube.com/"
+  ],
+  "serviceType": [
+    "Editing letterario",
+    "Correzione di bozze",
+    "Valutazione manoscritti",
+    "Impaginazione per stampa e POD",
+    "Supporto editoriale per case editrici"
+  ]
+}</script></head>
 <body>
-  <main class="card" role="main" aria-label="Manutenzione">
-    <div class="brand">
-      <span class="dot" aria-hidden="true"></span>
-      <span class="name">EdiToso</span>
-    </div>
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<!-- AI Generated Content Only - No Preset Header/Footer -->
+<nav class="nav" style="">
+<div class="nav-container" style="">
+<a class="nav-logo" href="#home"><img src="logoEDIT_transparent.png" alt="EdiToso" style="max-height: 60px; width: auto; display: block;"></a>
+<ul class="nav-links" style=""><li><a href="#servizi">Servizi</a></li><li><a href="#impaginazione">Impaginazione</a></li><li><a href="#perchi">Per chi</a></li><li><a href="#editori">Case editrici</a></li><li><a href="#prezzi">Prezzi</a></li><li><a href="#pacchetti">Pacchetti</a></li><li><a href="#processo">Processo</a></li><li><a href="#faq">FAQ</a></li><li><a href="#blog">Blog</a></li><li><a href="#contatti">Contatti</a></li></ul>
+<button aria-label="Menu" class="mobile-menu-btn">
+<svg class="lucide lucide-menu" data-lucide="menu" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+</button>
+</div>
+<div class="mobile-menu">
+<ul><li><a href="#servizi">Servizi</a></li><li><a href="#impaginazione">Impaginazione</a></li><li><a href="#perchi">Per chi</a></li><li><a href="#editori">Case editrici</a></li><li><a href="#prezzi">Prezzi</a></li><li><a href="#pacchetti">Pacchetti</a></li><li><a href="#processo">Processo</a></li><li><a href="#faq">FAQ</a></li><li><a href="#blog">Blog</a></li><li><a href="#contatti">Contatti</a></li></ul>
+</div>
+</nav>
+<main class="">
+<section class="hero" id="home" style="">
+<div class="hero-content" style="">
+<div class="hero-eyebrow" style="">EdiToso - Servizi Letterari</div>
+<h1 class="hero-title" style="">Servizi editoriali per autori e case editrici</h1>
+<p class="hero-subtitle" style="">Editing, correzione bozze, valutazioni e impaginazione: un lavoro pulito, concreto, con prezzi trasparenti. Per manoscritti, fumetti, collane e cataloghi.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#contatti" style="">
+<svg class="lucide lucide-send" data-lucide="send" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+          Mandami il tuo progetto
+        </a>
+<a class="btn btn-secondary" href="#servizi">
+<svg class="lucide lucide-book-open" data-lucide="book-open" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+          Scopri i servizi
+        </a>
+<a class="btn btn-secondary" href="#editori">Sono una casa editrice</a></div>
+</div>
+</section>
+<section class="section" id="servizi" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="" style="">
+<h2 class="section-title" style="">Le parole sono il mio mestiere</h2>
+<p class="section-subtitle" style="">Servizi letterari professionali per autori che non vogliono scherzi</p>
+</div>
+<div class="services-grid" style="">
+<div class="service-card animate-in" data-animate="" style="">
+<div class="service-icon">
+<svg class="lucide lucide-check-circle" data-lucide="check-circle" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+</div>
+<div class="service-header">
+<h3 class="service-title">Correzione di bozze</h3>
+<span class="service-price">2,50€/cartella</span>
+</div>
+<p class="service-description" style="">"Il tuo testo è pronto, ma serve uno sguardo spietato. Elimino refusi, errori grammaticali e quella virgola che non dovrebbe stare lì. Perché i dettagli fanno la differenza tra 'amatoriale' e 'professionale'."</p>
+<ul class="service-features">
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Ortografia, grammatica (zero pietà)</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Punteggiatura che ha senso</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Coerenza stilistica senza compromessi</li>
+</ul>
+<a class="btn btn-primary" href="#contatti">Ho un testo da correggere</a>
+</div>
+<div class="service-card animate-in" data-animate="" style="">
+<div class="service-icon" style="">
+<svg class="lucide lucide-zap" data-lucide="zap" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+</div>
+<div class="service-header" style="">
+<h3 class="service-title" style="">Editing express</h3>
+<span class="service-price" style="">199€</span>
+</div>
+<p class="service-description" style="">"Per racconti e articoli lunghi fino a 40.000 parole. Editing stilistico completo, feedback dettagliato e un round di revisioni. Perfetto per chi ha un progetto breve ma vuole farlo brillare."</p>
+<ul class="service-features">
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Fino a 40.000 parole</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Editing stilistico completo</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Feedback + 1 round revisioni</li>
+</ul>
+<a class="btn btn-primary" href="#contatti" style="">Ho un racconto da editare</a>
+</div>
+<div class="service-card animate-in" data-animate="" style="">
+<div class="service-icon" style="">
+<svg class="lucide lucide-pencil" data-lucide="pencil" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg>
+</div>
+<div class="service-header">
+<h3 class="service-title" style="">Editing completo</h3>
+<span class="service-price" style="">349€</span>
+</div>
+<p class="service-description" style="">"Il vero lavoro per romanzi standard (40.000-100.000 parole). Editing stilistico e strutturale, commenti dettagliati nel testo, due round di revisioni. Il tuo romanzo uscirà trasformato."</p>
+<ul class="service-features">
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>40.000-100.000 parole</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Editing stilistico + strutturale</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Commenti + 2 round revisioni</li>
+</ul>
+<a class="btn btn-primary" href="#contatti" style="">Ho un romanzo da editare</a>
+</div>
+<div class="service-card animate-in" data-animate="" style="">
+<div class="service-icon">
+<svg class="lucide lucide-crown" data-lucide="crown" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"></path><path d="M5 21h14"></path></svg>
+</div>
+<div class="service-header">
+<h3 class="service-title" style="">Editing masterclass</h3>
+<span class="service-price" style="">Preventivo</span>
+</div>
+<p class="service-description" style="">"Per opere complesse oltre le 100.000 parole. Tutto quello che c'è nell'Editing completo, più tre round di revisioni e una call di debriefing finale. Preventivo personalizzato ma sempre trasparente."</p>
+<ul class="service-features">
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>100.000+ parole</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Editing completo + 3 round revisioni</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Call di debriefing finale</li>
+</ul>
+<a class="btn btn-primary" href="#contatti">Ho un'opera monumentale</a>
+</div>
+<div class="service-card animate-in" data-animate="" style="">
+<div class="service-icon">
+<svg class="lucide lucide-message-square" data-lucide="message-square" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path></svg>
+</div>
+<div class="service-header" style="">
+<h3 class="service-title" style="">Valutazione</h3>
+<span class="service-price" style="">da 59€</span>
+</div>
+<p class="service-description" style="">"Non sai se il tuo manoscritto funziona? Voglio dirti la verità (senza giri di parole). Lettura cinematografica, feedback costruttivo, suggerimenti concreti: 'ecco cosa funziona e cosa no'."</p>
+<div aria-label="Prezzi valutazione per numero di battute" class="tier-pricing">
+<div class="tier-row"><span>Fino a 100.000 battute</span><strong>59€</strong></div>
+<div class="tier-row"><span>100.001 – 200.000 battute</span><strong>89€</strong></div>
+<div class="tier-row"><span>200.001 – 300.000 battute</span><strong>119€</strong></div>
+<div class="tier-row"><span>Oltre 300.000 battute</span><strong>Su preventivo</strong></div>
+</div>
 
-    <h1>Sito in aggiornamento</h1>
-    <p>Sto sistemando gli ultimi dettagli (quelli che noterei solo io 😄). Torno online a breve.</p>
-    <p>Se ti serve contattarmi nel frattempo, puoi scrivermi su WhatsApp.</p>
+<ul class="service-features">
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Analisi punti di forza</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Criticità evidenziate</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Suggerimenti mirati + 1 call chiarimenti</li>
+</ul>
+<a class="btn btn-primary" href="#contatti" style="">Non so se il mio libro è buono</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section visual-services" id="impaginazione" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="" style="">
+<h2 class="section-title" style="">Dove il testo incontra la visione</h2>
+<p class="section-subtitle" style="">Servizi visuali per chi pensa che la forma sia sostanza</p>
+</div>
+<div class="services-grid" style="">
+<div class="service-card animate-in" data-animate="">
+<div class="service-icon">
+<svg class="lucide lucide-book-open" data-lucide="book-open" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+</div>
+<div class="service-header">
+<h3 class="service-title">Impaginazione professionale</h3>
+<span class="service-price">249–449€</span>
+</div>
+<p class="service-description">"Un bell'interno non basta: il layout giusto trasforma il testo. Impagino con InDesign e QuarkXPress per stampa, POD e digitale. Tre livelli (Small/Standard/Large) in base alle pagine, con gabbie tipografiche su misura."</p>
+<div aria-label="Prezzi impaginazione per numero di pagine" class="tier-pricing">
+<div class="tier-row"><span><strong>Small</strong> (fino a 200 pagine)</span><strong>249€</strong></div>
+<div class="tier-row"><span><strong>Standard</strong> (200–400 pagine)</span><strong>349€</strong></div>
+<div class="tier-row"><span><strong>Large</strong> (oltre 400 pagine)</span><strong>449€</strong></div>
+</div>
 
-    <div class="row">
-      <a class="btn primary" href="https://wa.me/393403480338" target="_blank" rel="noopener">Scrivimi su WhatsApp</a>
-    </div>
+<ul class="service-features">
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>3 livelli in base alle pagine (Small / Standard / Large)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Formati ebook (ePub, Kindle)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Gabbie tipografiche su misura</li>
+</ul>
+<a class="btn btn-primary" href="#contatti">Devo impaginare il mio libro</a>
+</div>
+<div class="service-card animate-in" data-animate="" style="">
+<div class="service-icon">
+<svg class="lucide lucide-type" data-lucide="type" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4v16"></path><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"></path><path d="M9 20h6"></path></svg>
+</div>
+<div class="service-header">
+<h3 class="service-title">Lettering per fumetti</h3>
+<span class="service-price">18€/pag</span>
+</div>
+<p class="service-description" style="">"Il lettering è la voce del fumetto. Balloon giusti, onomatopee che gridano, didascalie che respirano. Lettering digitale professionale che segue gli standard internazionali. Il tuo fumetto avrà la voce che merita."</p>
+<ul class="service-features">
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Lettering digitale professionale</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Adattamento balloon e font</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Consulenza su ritmo visivo</li>
+</ul>
+<a class="btn btn-primary" href="#contatti">Scrivo fumetti</a>
+</div>
+<div class="service-card animate-in" data-animate="" style="">
+<div class="service-icon" style="">
+<svg class="lucide lucide-film" data-lucide="film" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M7 3v18"></path><path d="M3 7.5h4"></path><path d="M3 12h18"></path><path d="M3 16.5h4"></path><path d="M17 3v18"></path><path d="M17 7.5h4"></path><path d="M17 16.5h4"></path></svg>
+</div>
+<div class="service-header" style="">
+<h3 class="service-title">Consulenza visiva</h3>
+<span class="service-price">75–400€</span>
+</div>
+<p class="service-description" style="">"Sceneggiature, storyboard, adattamenti. La mia formazione cinematografica al servizio della tua narrazione visiva. Puoi scegliere una call Mini (30 min), Standard (1h) o Maxi (3h), in base a quanto vuoi andare a fondo."</p>
+<div aria-label="Prezzi consulenza visiva per durata" class="tier-pricing">
+<div class="tier-row"><span><strong>Mini</strong> (30 min)</span><strong>75€</strong></div>
+<div class="tier-row"><span><strong>Standard</strong> (1h)</span><strong>150€</strong></div>
+<div class="tier-row"><span><strong>Maxi</strong> (3h)</span><strong>400€</strong></div>
+</div>
 
-    <small>© EdiToso</small>
-  </main>
+<ul class="service-features"><li><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Scegli durata: 30 min / 1h / 3h</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Analisi sceneggiature (da regista)</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Consulenza narrativa visiva</li>
+<li class="" style=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Feedback su ritmo e regia</li>
+</ul>
+<a class="btn btn-primary" href="#contatti">Ho una sceneggiatura</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section why-editoso" id="perche" style="">
+<div class="container">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title" style="">Perché EdiToso?</h2>
+<p class="section-subtitle" style="">Non sono 'un editor tra tanti'...</p>
+</div>
+<div class="intro-text animate-in" data-animate="">
+<p class="" style="">... ma qualcuno che ha passato anni a studiare cinema, a divorare fumetti, a impaginare libri e riviste, a scrivere, a correggere manoscritti. E soprattutto: non amo i giri di parole. Amo la trasparenza.</p>
+</div>
+<div class="why-grid" style="">
+<div class="why-card animate-in" data-animate="">
+<div class="why-card-icon">🎬</div>
+<h3 class="why-card-title" style="">Visione cinematografica</h3>
+<p class="why-card-description" style="">Ho studiato scienze dello spettacolo. Leggo il tuo testo come se lo stessi montando: ritmo, struttura, dove respira, dove accelera. Non solo correzioni: visione.</p>
+</div>
+<div class="why-card animate-in" data-animate="">
+<div class="why-card-icon">🎨</div>
+<h3 class="why-card-title">Competenza visiva multipla</h3>
+<p class="why-card-description" style="">Fumetti, graphic novel, impaginazione. So come le parole "suonano" e come colpiscono l'immaginazione. Edito un testo che vuole vivere sulle pagine.</p>
+</div>
+<div class="why-card animate-in" data-animate="">
+<div class="why-card-icon">⚡</div>
+<h3 class="why-card-title">Passione per il genere</h3>
+<p class="why-card-description" style="">Fantasy, sci-fi, horror, thriller. Non mi spaventano i generi "pop". Conosco i codici, le aspettative, i cliché da evitare. Leggo come lettore, edito come professionista.</p>
+</div>
+<div class="why-card animate-in" data-animate="">
+<div class="why-card-icon">💯</div>
+<h3 class="why-card-title">Trasparenza totale</h3>
+<p class="why-card-description" style="">Prezzi pubblici, tempi rispettati, feedback onesto. Massima chiarezza sia per i costi sia per i testi, senza bugie di cortesia. Se qualcosa non funziona, te lo dico.</p>
+</div>
+</div>
+<div class="stats-box animate-in" data-animate="" style="">
+<div class="stat-item">
+<span class="stat-number">17+</span>
+<span class="stat-label">Anni di editoria</span>
+</div>
+<div class="stat-item">
+<span class="stat-number" style="">500+</span>
+<span class="stat-label">Progetti completati</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">100%</span>
+<span class="stat-label">Passione (non finta)</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">0</span>
+<span class="stat-label">Sorprese sui prezzi</span>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="perchi" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="" style="">
+<h2 class="section-title" style="">Trova il tuo percorso</h2>
+<p class="section-subtitle" style="">Sei self-publisher? Fumettista? Esordiente? Ecco come posso aiutarti.</p>
+</div>
+<div class="audience-grid" style="">
+<div class="audience-card animate-in" data-animate="">
+<div class="audience-icon">🚀</div>
+<h3 class="audience-title" style="">Self-publisher</h3>
+<p class="audience-description" style="">Vuoi pubblicare in autonomia, ottimo! Editing, impaginazione, consulenza copertina. Ti seguo dall'idea al file di stampa.</p>
+<a class="btn btn-primary" href="#contatti">Voglio autopubblicare professionalmente</a>
+</div>
+<div class="audience-card animate-in" data-animate="">
+<div class="audience-icon">🎨</div>
+<h3 class="audience-title" style="">Fumettisti &amp; sceneggiatori</h3>
+<p class="audience-description" style="">Editing sceneggiatura, lettering, consulenza narrativa visiva. Parlo la tua lingua e leggo i tuoi fumetti (seriamente).</p>
+<a class="btn btn-primary" href="#contatti">Ho una sceneggiatura / fumetto</a>
+</div>
+<div class="audience-card animate-in" data-animate="" style="">
+<div class="audience-icon">✨</div>
+<h3 class="audience-title" style="">Autori di genere</h3>
+<p class="audience-description" style="">Fantasy, sci-fi, horror, thriller. Non li correggo: li capisco. Conosco i codici, le aspettative e... come tradirle bene.</p>
+<a class="btn btn-primary" href="#contatti" style="">Ho scritto un fantasy / thriller</a>
+</div>
+<div class="audience-card animate-in" data-animate="" style="">
+<div class="audience-icon">💫</div>
+<h3 class="audience-title">Autori esordienti</h3>
+<p class="audience-description" style="">Primo libro? Calma e fai un bel respiro. Ti spiego tutto senza presunzione, dai file formats ai prezzi di stampa.</p>
+<a class="btn btn-primary" href="#contatti">Ho scritto il mio primo libro</a>
+</div>
+<div class="audience-card animate-in" data-animate=""><div class="audience-icon">🏛️</div><h3 class="audience-title">Case editrici</h3><p class="audience-description">Correzione bozze, editing di collana, schede di lettura e supporto redazionale. Tempi chiari, comunicazione snella, consegne affidabili.</p><a class="btn btn-primary" href="#contatti">Cerco un collaboratore editoriale</a></div></div>
+</div>
+</section>
+<section class="section pricing" id="prezzi" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title" style="">Prezzi? Sono qui, chiari e onesti</h2>
+<p class="section-subtitle" style="">Senza 'su preventivo', senza mistero. Trasparenza dal primo giorno.</p>
+</div>
+<div class="pricing-intro animate-in" data-animate="" style="">
+<p class="" style="">Idee chiare e senza sorprese. I prezzi che vedi sotto sono i miei prezzi: partono da queste cifre, restano così se il progetto rientra nella norma. Se è più complesso ne parliamo onestamente, ma almeno sai da dove cominci.</p>
+<p class="" style=""><strong style="">La trasparenza è una questione di rispetto per chi mi sceglie.</strong></p>
+</div><div class="pricing-packages services-grid animate-in" data-animate=""><div class="service-card animate-in" data-animate=""><div class="service-header"><h3 class="service-title">Autori</h3><div class="service-price"><span class="price">Parti da: vedi listino sotto</span></div></div><p class="service-description">Da correzione a editing completo: miglioro ritmo, chiarezza e coerenza senza snaturarti.</p><a class="btn btn-primary" href="#contatti">Parliamone</a></div><div class="service-card animate-in" data-animate=""><div class="service-header"><h3 class="service-title">Self‑publisher</h3><div class="service-price"><span class="price">Workflow completo</span></div></div><p class="service-description">Editing + impaginazione (stampa/POD) + controlli finali: file pronti per KDP/Ingram.</p><a class="btn btn-primary" href="#pacchetti">Parliamone</a></div><div class="service-card animate-in" data-animate=""><div class="service-header"><h3 class="service-title">Case editrici</h3><div class="service-price"><span class="price">Collaborazioni B2B</span></div></div><p class="service-description">Bozze, line editing, schede di lettura e supporto redazionale con tempi e standard.</p><a class="btn btn-primary" href="#editori">Parliamone</a></div></div>
+<div class="pricing-table animate-in" data-animate="">
+<table>
+<thead>
+<tr>
+<th class="">Servizio</th>
+<th class="" style="">Prezzo</th>
+<th class="" style="">Cosa hai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="service-name" data-label="Servizio">Valutazione manoscritto</td>
+<td class="price" style="" data-label="Prezzo">59€ / 89€ / 119€<br/><span style="font-size:0.9rem;color:var(--text-secondary);font-weight:600;">(oltre 300.000: preventivo)</span></td>
+<td class="included" style="" data-label="Cosa hai">Scheda di valutazione, feedback onesto, suggerimenti concreti, 1 call chiarimenti. Prezzo in base alle battute.</td>
+</tr>
+<tr>
+<td class="service-name" data-label="Servizio">Editing</td>
+<td class="price" style="" data-label="Prezzo">da 199€</td>
+<td class="included" style="" data-label="Cosa hai">Editing stilistico e strutturale, commenti dettagliati, 1 round revisioni, feedback trasmesso con chiarezza</td>
+</tr>
+<tr>
+<td class="service-name" data-label="Servizio">Correzione di bozze</td>
+<td class="price" data-label="Prezzo">2,50€/cart</td>
+<td class="included" data-label="Cosa hai">Ortografia, grammatica, punteggiatura, formattazione, coerenza. Minimo 100 cartelle</td>
+</tr>
+<tr>
+<td class="service-name" data-label="Servizio">Impaginazione libro</td>
+<td class="price" data-label="Prezzo">Small 249€<br/>Standard 349€<br/>Large 449€</td>
+<td class="included" style="" data-label="Cosa hai">Layout professionale InDesign/Quark (stampa/POD). Livello in base alle pagine, gabbie tipografiche su misura, QA finale.</td>
+</tr>
+<tr>
+<td class="service-name" data-label="Servizio">Lettering per fumetti</td>
+<td class="price" style="" data-label="Prezzo">18€/pag</td>
+<td class="included" style="" data-label="Cosa hai">Lettering digitale professionale, balloon e onomatopee, font consulting, adattamento visivo</td>
+</tr>
+<tr>
+<td class="service-name" data-label="Servizio">Consulenza narrativa visiva</td>
+<td class="price" style="" data-label="Prezzo">Mini 75€<br/>Standard 150€<br/>Profonda 400€</td>
+<td class="included" style="" data-label="Cosa hai">Call di consulenza su ritmo/regia narrativa e soluzioni visive. Durata a scelta: 30 min / 1h / 3h.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pricing-examples">
+<div class="pricing-example animate-in" data-animate="">
+<h3 class="example-title">Esempio 1: Autore esordiente</h3>
+<ul class="example-breakdown">
+<li class=""><span class="">Valutazione (≤100.000 battute)</span><span class="">59€</span></li>
+<li class=""><span class="">Editing</span><span class="">349€</span></li>
+<li class=""><span class="">Correzione bozze (150 cart)</span><span class="">375€</span></li>
+</ul>
+<div class="example-total">
+<span class="total-label">Totale</span>
+<span class="total-price">783€</span>
+</div>
+</div>
+<div class="pricing-example animate-in" data-animate="">
+<h3 class="example-title">Esempio 2: Fumettista</h3>
+<ul class="example-breakdown">
+<li class=""><span class="">Lettering (20 pagg)</span><span class="">360€</span></li>
+<li class=""><span class="">Consulenza visiva (Standard 1h)</span><span class="">150€</span></li>
+</ul>
+<div class="example-total">
+<span class="total-label">Totale</span>
+<span class="total-price">510€</span>
+</div>
+</div>
+<div class="pricing-example animate-in" data-animate="">
+<h3 class="example-title">Esempio 3: Pacchetto completo</h3>
+<ul class="example-breakdown">
+<li class=""><span class="">Valutazione (100–200k battute)</span><span class="">89€</span></li>
+<li class=""><span class="">Editing</span><span class="">349€</span></li>
+<li class=""><span class="">Correzione (200 cart)</span><span class="">500€</span></li>
+<li class=""><span class="">Impaginazione (Standard 200–400 pag)</span><span class="">349€</span></li>
+<li class=""><span class="">Subtotale</span><span class="">1.287€</span></li>
+<li class=""><span class="">Sconto pacchetto (-20%)</span><span class="" style="color: var(--senape);">-258€</span></li>
+</ul>
+<div class="example-total">
+<span class="total-label">Totale</span>
+<span class="total-price">1.029€</span>
+</div>
+</div>
+</div>
+<div class="pricing-note animate-in" data-animate="">
+<strong>Nota sulla trasparenza</strong>
+<p class="">Questi sono prezzi base. Se il tuo progetto è:</p>
+<ul>
+<li class="">Più lungo del previsto → calcoliamo insieme (proporzionalmente)</li>
+<li class="">Molto urgente → rush charge (+15-30%, ma te lo dico prima)</li>
+<li class="">Molto complesso → rivediamo, sempre in trasparenza</li>
+</ul>
+<p class=""><strong>Il mio motto: zero sorprese, massima chiarezza.</strong></p>
+</div>
+</div>
+</section>
+<section class="section why-prices" id="trasparenza" style="">
+<div class="container">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title">Perché i miei prezzi sono così bassi?</h2>
+<p class="section-subtitle">Una semplice scelta su come voglio lavorare.</p>
+</div>
+<div class="intro-text animate-in" data-animate="">
+<p class="">Mantengo bassi i costi e preferisco lavorare con una struttura snella. Non stai pagando uffici, intermediari o marketing aggressivo: stai pagando il lavoro sul testo.</p>
+</div>
+<div class="why-prices-grid" style="">
+<div class="price-reason-card animate-in" data-animate="">
+<h3 class="reason-title">Niente ufficio, niente team (niente dramma)</h3>
+<p class="reason-description">Lavoro da remoto, da solo, con costi minimali. Niente ufficio, niente affitti gonfiati, niente stipendi di team. Tu paghi il mio lavoro, non la mia struttura.</p>
+<div class="reason-means">
+<strong>Cosa significa:</strong>
+<p class="">Prezzi equi, non gonfiati da strutture aziendali</p>
+</div>
+</div>
+<div class="price-reason-card animate-in" data-animate="" style="">
+<h3 class="reason-title">Oltre 17 anni di editoria vera (non blog)</h3>
+<p class="reason-description">Non sono un freelancer che prova a imparare. Ho lavorato 17 anni in una casa editrice milanese, editato centinaia di titoli, visto il mercato cambiare. Offro esperienza vera a un prezzo equo.</p>
+<div class="reason-means">
+<strong>Cosa significa:</strong>
+<p class="">Competenza garantita, zero compromessi</p>
+</div>
+</div>
+<div class="price-reason-card animate-in" data-animate="">
+<h3 class="reason-title">Montatore narrativo con sguardo cinematografico</h3>
+<p class="reason-description">Edito come se stessi montando un film: ritmo, struttura, regia narrativa. Testo pulito e trasformato, per un prezzo che tutti possono permettersi.</p>
+<div class="reason-means">
+<strong>Cosa significa:</strong>
+<p class="">Valore aggiunto, oltre al semplice servizio</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<section class="section process" id="processo" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title" style="">Il nostro percorso</h2>
+<p class="section-subtitle">Dal primo messaggio al risultato finale. Niente mistero.</p>
+</div>
+<div class="process-steps">
+<div class="process-step animate-in" data-animate="">
+<div class="step-number">1</div>
+<h3 class="step-title">Mi scrivi</h3>
+<p class="step-description">Mi racconti del tuo progetto: cosa hai scritto, a che punto sei, cosa cerchi. Sii onesto, non perfetto.</p>
+</div>
+<div class="process-step animate-in" data-animate="">
+<div class="step-number">2</div>
+<h3 class="step-title">Mi mandi un estratto</h3>
+<p class="step-description">Prime 20-30 pagine. Le leggo attentamente, capisco il tuo stile, le tue esigenze.</p>
+</div>
+<div class="process-step animate-in" data-animate="">
+<div class="step-number">3</div>
+<h3 class="step-title">Ti propongo il percorso</h3>
+<p class="step-description">Proposta dettagliata: quale servizio, tempistiche realistiche, prezzo chiaro. Zero sorprese.</p>
+</div>
+<div class="process-step animate-in" data-animate="">
+<div class="step-number">4</div>
+<h3 class="step-title">Lavoriamo</h3>
+<p class="step-description">Inizio il lavoro: correggo, edito, valuto. Rispetto sempre la tua voce e il tuo stile.</p>
+</div>
+<div class="process-step animate-in" data-animate="">
+<div class="step-number">5</div>
+<h3 class="step-title">Ti consegno il lavoro</h3>
+<p class="step-description">Testo completato + spiegazione di ogni intervento. Resto disponibile per chiarimenti.</p>
+</div>
+</div>
+<div class="process-example animate-in" data-animate="">
+<div class="example-header">
+<h3 class="section-title" style="text-align: left; font-size: 1.5rem; margin-bottom: 8px;">Esempio concreto: Marco</h3>
+<p class="example-scenario">Marco ha finito un romanzo fantasy di 300 pagine. Prima opera.</p>
+</div>
+<div class="example-flow">
+<div class="flow-step">
+<span class="flow-label">Marco:</span>
+<span class="flow-text">"Ho finito un fantasy, voglio sapere se funziona"</span>
+</div>
+<div class="flow-step">
+<span class="flow-label">Io:</span>
+<span class="flow-text">Leggo 30 pagine, capisco lo stile</span>
+</div>
+<div class="flow-step">
+<span class="flow-label">Io:</span>
+<span class="flow-text">"Ti propongo valutazione + editing (prezzo definito in anticipo), 5 settimane"</span>
+</div>
+<div class="flow-step">
+<span class="flow-label">Marco:</span>
+<span class="flow-text">"Ok"</span>
+</div>
+<div class="flow-step">
+<span class="flow-label">Io:</span>
+<span class="flow-text">4-5 settimane di lavoro</span>
+</div>
+<div class="flow-step">
+<span class="flow-label">Marco:</span>
+<span class="flow-text">Riceve: scheda valutazione + file editato con commenti + call per discussione</span>
+</div>
+<div class="flow-step">
+<span class="flow-label">Marco:</span>
+<span class="flow-text">Capisce: cosa funziona, cosa no, e cosa fare dopo</span>
+</div>
+</div>
+<div class="example-note">
+<svg class="lucide lucide-lightbulb" data-lucide="lightbulb" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+<p class=""><strong>Nota importante:</strong> il testo rimane suo. Io suggerisco. Lui decide. L'obiettivo non è convincerlo a riscrivere il libro: è aiutarlo a renderlo la versione migliore di se stesso.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section b2b" id="editori" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title">Lavoro anche con case editrici</h2>
+<p class="section-subtitle">Se gestisci una casa editrice piccola/media e cerchi un editor affidabile, parliamo.</p>
+</div>
+<div class="intro-text animate-in" data-animate="">
+<p class="">Ho lavorato in una casa editrice per oltre 17 anni e con decine di editori indipendenti. Conosco il workflow, i tempi di stampa, le logiche commerciali, le specificità di genere.</p>
+</div>
+
+<ul class="b2b-list"><li>Correzione bozze (uno o più giri) con stile coerente e foglio norme se serve</li><li>Editing di collana / line editing: uniformità di voce e standard redazionali</li><li>Schede di lettura: valutazione rapida con punti di forza, criticità, potenziale</li><li>Impaginazione per stampa/POD (KDP, IngramSpark) e controlli preflight</li><li>Supporto su sinossi, quarta, paratesti: chiarezza e tono giusto per il pubblico</li></ul>
+
+<div class="b2b-services">
+<div class="b2b-service animate-in" data-animate="">
+<h3 class="b2b-service-title">Editing per narrativa di genere</h3>
+<p class="b2b-service-for">Per: case editrici che pubblicano 10-30 titoli/anno</p>
+<div class="b2b-service-included">
+<strong>Incluso:</strong>
+<p class="">Editing completo, report dettagliato, 1-2 round revisioni, timeline rispettate</p>
+</div>
+<div class="b2b-service-diff">
+<strong>Punti di forza:</strong>
+<p class="">"Conosco i codici di fantasy, thriller, horror. So cosa il lettore aspetta."</p>
+</div>
+</div>
+<div class="b2b-service animate-in" data-animate="">
+<h3 class="b2b-service-title">Qualità certificata pre-stampa</h3>
+<p class="b2b-service-for">Per: libri pronti per la stampa</p>
+<div class="b2b-service-included">
+<strong>Incluso:</strong>
+<p class="">Verifica ortografia/grammatica, check formattazione, verifica citazioni, errori critici segnalati</p>
+</div>
+<div class="b2b-service-diff">
+<strong>Punti di forza:</strong>
+<p class="">"Zero sorprese in stampa. Il tuo libro esce pulito."</p>
+</div>
+</div>
+<div class="b2b-service animate-in" data-animate="">
+<h3 class="b2b-service-title">Impaginazione professionale</h3>
+<p class="b2b-service-for">Per: case editrici che outsourcano il layout</p>
+<div class="b2b-service-included">
+<strong>Incluso:</strong>
+<p class="">Design gabbie tipografiche, layout stampa/POD/ebook, gestione file, consulenza</p>
+</div>
+<div class="b2b-service-diff">
+<strong>Punti di forza:</strong>
+<p class="">"Impaginazione che sa di cinema. Bella e funzionale."</p>
+</div>
+</div>
+<div class="b2b-service animate-in" data-animate="">
+<h3 class="b2b-service-title">Consulenza editoriale</h3>
+<p class="b2b-service-for">Per: editori con dubbi su un manoscritto</p>
+<div class="b2b-service-included">
+<strong>Incluso:</strong>
+<p class="">Lettura veloce (48-72h), report con potenziale commerciale, raccomandazione finale</p>
+</div>
+<div class="b2b-service-diff">
+<strong>Punti di forza:</strong>
+<p class="">"Ti dico la verità. Senza filtri."</p>
+</div>
+</div>
+</div>
+<h3 class="section-title animate-in" data-animate="" style="text-align: center; margin: 64px 0px 32px;">Modelli di collaborazione</h3>
+<div class="b2b-models">
+<div class="b2b-model animate-in" data-animate="">
+<h4 class="model-title">Progetto singolo</h4>
+<div class="model-details">
+<div class="model-detail">
+<svg class="lucide lucide-euro" data-lucide="euro" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 10h12"></path><path d="M4 14h9"></path><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"></path></svg>
+<span class=""><strong>Costo:</strong> Preventivo personalizzato</span>
+</div>
+<div class="model-detail">
+<svg class="lucide lucide-clock" data-lucide="clock" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+<span class=""><strong>Timeline:</strong> 3-6 settimane</span>
+</div>
+</div>
+<p class="model-for">Per: pubblichi raramente, titolo specifico, valutazione esterna</p>
+</div>
+<div class="b2b-model animate-in" data-animate="">
+<h4 class="model-title">Retainer annuale</h4>
+<div class="model-details" style="">
+<div class="model-detail">
+<svg class="lucide lucide-euro" data-lucide="euro" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 10h12"></path><path d="M4 14h9"></path><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"></path></svg>
+<span class=""><strong>Costo:</strong> da €3.500/anno</span>
+</div>
+<div class="model-detail">
+<svg class="lucide lucide-package" data-lucide="package" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><path d="m7.5 4.27 9 5.15"></path></svg>
+<span class=""><strong>Include:</strong> 3-4 titoli/anno, sconto 15-20%</span>
+</div>
+</div>
+<p class="model-for">Per: pubblichi regolarmente, continuità, coerenza editoriale</p>
+</div>
+<div class="b2b-model animate-in" data-animate="">
+<h4 class="model-title">Collaborazione per genere</h4>
+<div class="model-details">
+<div class="model-detail">
+<svg class="lucide lucide-euro" data-lucide="euro" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 10h12"></path><path d="M4 14h9"></path><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"></path></svg>
+<span class=""><strong>Costo:</strong> retainer customizzato</span>
+</div>
+</div>
+<p class="model-for">Per: specializzazione in genere, coerenza di voce, expertise profonda</p>
+</div>
+</div>
+<h3 class="section-title animate-in" data-animate="" style="text-align: center; margin: 64px 0px 32px;">Elementi distintivi</h3>
+<div class="b2b-differentials">
+<div class="differential-item animate-in" data-animate="">
+<svg class="lucide lucide-book-check" data-lucide="book-check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path><path d="m9 9.5 2 2 4-4"></path></svg>
+<span class="">Editoria vera (17 anni)</span>
+</div>
+<div class="differential-item animate-in" data-animate="">
+<svg class="lucide lucide-shield-check" data-lucide="shield-check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+<span class="">Affidabilità</span>
+</div>
+<div class="differential-item animate-in" data-animate="">
+<svg class="lucide lucide-sparkles" data-lucide="sparkles" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+<span class="" style="">Expertise di genere</span>
+</div>
+<div class="differential-item animate-in" data-animate="">
+<svg class="lucide lucide-heart-handshake" data-lucide="heart-handshake" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"></path></svg>
+<span class="">Prezzo onesto</span>
+</div>
+<div class="differential-item animate-in" data-animate="">
+<svg class="lucide lucide-glasses" data-lucide="glasses" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="15" r="4"></circle><circle cx="18" cy="15" r="4"></circle><path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2"></path><path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"></path><path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"></path></svg>
+<span class="">Visione a 360°</span>
+</div>
+</div>
+<div class="b2b-case-study animate-in" data-animate="">
+<h3 class="case-study-title">Case study</h3>
+<div class="case-study-content">
+<div class="case-study-item">
+<strong>Scenario:</strong>
+<p class="">Editore indie fantasy, 3-4 titoli/anno, ha perso editor interno</p>
+</div>
+<div class="case-study-item" style="">
+<strong>Soluzione:</strong>
+<p class="">Retainer annuale per 3-4 titoli con editing completo, QA, consulenza acquisizioni</p>
+</div>
+<div class="case-study-item">
+<strong>Risultato:</strong>
+<p class="">Continuità, coerenza stilistica, timeline rispettate</p>
+</div>
+</div>
+</div>
+<div class="b2b-cta" style="">
+<p class="">Se gestisci una casa editrice, raccontami: quanti titoli/anno? Quali generi? Problemi attuali?</p>
+<a class="btn btn-primary" href="#contatti">
+<svg class="lucide lucide-briefcase" data-lucide="briefcase" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect height="14" rx="2" width="20" x="2" y="6"></rect></svg>
+          Parliamo di Collaborazione
+        </a>
+</div>
+</div>
+</section>
+<section class="section combos" id="pacchetti" style="">
+<div class="container">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title" style="">Pacchetti combo: risparmia di più</h2>
+<p class="section-subtitle">Perché pagare separatamente? Prendi il pacchetto, risparmi fino al 30%.</p>
+</div>
+<div class="combo-grid">
+<div class="combo-card animate-in" data-animate="">
+<span class="combo-badge">🚀 Il più popolare</span>
+<h3 class="combo-title">Self-Publisher All-In</h3>
+<ul class="combo-included">
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Valutazione manoscritto (≤100.000 battute = 59€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Editing (349€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Bozze (200 cart = 500€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Impaginazione (Standard 200–400 pag = 349€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Consulenza copertina omaggio (30 min)</li>
+</ul>
+<div class="combo-pricing">
+<span class="original-price">Prezzo Separato: 1.257€</span>
+<span class="combo-price">1.005€</span>
+<span class="discount">sconto 20%</span>
+</div>
+<a class="btn btn-primary" href="#contatti">Voglio il pacchetto self-publisher</a>
+</div>
+<div class="combo-card animate-in" data-animate="" style="">
+<span class="combo-badge">🎨 Professionale</span>
+<h3 class="combo-title">Fumettista professionista</h3>
+<ul class="combo-included">
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Editing sceneggiatura (199€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Lettering (20 pag = 360€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Consulenza narrativa (1h = 150€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>QA finale (omaggio)</li>
+</ul>
+<div class="combo-pricing">
+<span class="original-price">Prezzo Separato: 709€</span>
+<span class="combo-price">499€</span>
+<span class="discount">sconto 30%</span>
+</div>
+<a class="btn btn-primary" href="#contatti">Voglio il pacchetto fumettista</a>
+</div>
+<div class="combo-card animate-in" data-animate="">
+<span class="combo-badge">⭐ Perfetto per iniziare</span>
+<h3 class="combo-title">Autore esordiente</h3>
+<ul class="combo-included">
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Valutazione manoscritto (≤100.000 battute = 59€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Consulenza (Standard 1h = 150€)</li>
+<li class=""><svg class="lucide lucide-check" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>Primer omaggio: "10 errori comuni"</li>
+</ul>
+<div class="combo-pricing">
+<span class="original-price">Prezzo Separato: 209€</span>
+<span class="combo-price">167€</span>
+<span class="discount">sconto 20%</span>
+</div>
+<a class="btn btn-primary" href="#contatti">Ho scritto il mio primo libro</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section blog" id="blog"><div class="container"><div class="section-header animate-in" data-animate=""><h2 class="section-title">Blog: scrivere meglio, ogni settimana</h2><p class="section-subtitle">Errori comuni, tecniche pratiche e mini‑guide per migliorare un capitolo alla volta.</p></div><div class="services-grid"><div class="service-card animate-in" data-animate=""><h3 class="service-title">Dialoghi che suonano finti: 7 errori comuni (e come sistemarli)</h3><p class="service-description">Dialoghi da “teatro scolastico”? Qui trovi 7 errori tipici (infodump travestito, battute chilometriche, voci tutte uguali…) e come correggerli con esempi prima/dopo.</p></div><div class="service-card animate-in" data-animate=""><h3 class="service-title">Mostrare vs raccontare: 5 correzioni rapide con esempi prima/dopo</h3><p class="service-description">Cinque interventi lampo per trasformare frasi piatte in scene che si vedono e si sentono. Senza filosofia: solo riscritture pratiche.</p></div><div class="service-card animate-in" data-animate=""><h3 class="service-title">Punteggiatura: virgole e ritmo (senza massacrare il lettore)</h3><p class="service-description">Virgole tra soggetto e verbo, periodi infiniti, due punti usati come rullo di tamburi: tre errori che fanno inciampare e come sistemarli subito.</p></div></div><div style="margin-top: 1.5rem; display:flex; gap:1rem; flex-wrap:wrap;"><a class="btn btn-primary" href="blog.html">Vai al blog</a><a class="btn btn-secondary" href="#contatti">Proponimi un tema</a></div></div></section><section class="section faq" id="faq" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title">Domande frequenti sui prezzi</h2>
+<p class="section-subtitle">Risposte dirette, senza giri di parole.</p>
+</div>
+<div class="faq-list" style="">
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question">
+<h3 class="">Perché i tuoi prezzi sono così bassi?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Perché lavoro da solo, in remoto, con overhead minimo. Zero ufficio, zero team, zero marketing costoso. Passo il risparmio a te. La qualità rimane alta (ho più di 17 anni di esperienza). Nel primo anno voglio volume e feedback, non margini massimi.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Questi prezzi comprendono IVA?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">No, i prezzi sono netti. Quando faccio il preventivo, la aggiungo chiaramente. Zero sorprese. Promesso.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Offri sconti per progetti lunghi?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Certo. Se scegli Valutazione + Editing + Bozze + Impaginazione insieme, avrai uno sconto del 15-20%. Se sei un editore che punta a una collaborazione annuale, negoziamo retainer con margini migliori.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Offri consulenza gratis per capire il progetto?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">No, ma il primo messaggio con il tuo progetto è gratis: ci parliamo, capisco cosa serve, propongo il percorso, senza impegno. Se decidi di lavorare insieme, partiamo dal preventivo.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Che succede se il testo è più lungo del previsto?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Se davvero crescesse, aggiustiamo il prezzo proporzionalmente, sempre in trasparenza. Di solito, il testo si accorcia (tagliamo il superfluo).</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Accetti pagamenti rateizzati?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Per progetti sopra 500€, sì. Di solito: 50% all'inizio, 50% a consegna. Posso fare 3 rate senza costi aggiuntivi.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Come comunichiamo durante il lavoro?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Email per file e aggiornamenti. Se serve una call per chiarire i punti critici, me la chiedi e la facciamo. Niente videochiamate inutili.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Cosa succede se non mi piace il feedback?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Parliamone. Ti posso spiegare le mie motivazioni, il mio pensiero. Se poi rimani in disaccordo, va bene, teniamo il tuo progetto originale. Ma almeno saprai perché ho detto una cosa, invece di sentirti giudicato.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section-header animate-in" data-animate=""><h2 class="section-title">Domande generali su editing &amp; co.</h2><p class="section-subtitle">Risposte su tempi, formati, processo e costi.</p></div><div class="faq-list" style="">
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Quanto costa davvero un editing?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Dipende dalla lunghezza e dal tipo di intervento. Dopo una lettura gratuita di un estratto, ti mando un preventivo dettagliato, zero sorprese.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Quanto tempo ci vuole?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Bozze: 2-3 settimane. Editing completo: 4-7 settimane. Ti comunico sempre le tempistiche prima e le rispetto.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question">
+<h3 class="">Lavori solo con narrativa?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">La narrativa è il mio pane. Ma lavoro anche con saggistica, manuali, sceneggiature, fumetti. Se hai un progetto particolare, scrivimi: valutiamo insieme.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question">
+<h3 class="">Cosa devo mandarti per un preventivo?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Estratto (prime 10-20 pagine), breve descrizione del progetto e cosa vuoi ottenere. Basta.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Impagini per Amazon KDP?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Certo! KDP, IngramSpark, qualsiasi piattaforma POD. Conosco le specifiche tecniche.</p>
+</div>
+</div>
+</div>
+<div class="faq-item animate-in active" data-animate="">
+<div class="faq-question" style="">
+<h3 class="">Posso fare solo la valutazione senza editing?</h3>
+<svg class="lucide lucide-chevron-down" data-lucide="chevron-down" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+<p class="">Certamente. La valutazione è un servizio standalone: ti dico cosa funziona, cosa no, suggerimenti concreti. Poi decidi tu come procedere.</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section class="section contact" id="contatti" style="">
+<div class="container" style="">
+<div class="section-header animate-in" data-animate="">
+<h2 class="section-title">Mandami il tuo progetto</h2>
+<p class="section-subtitle" style="">Raccontami della tua storia. Sono tutto orecchi (e occhi).</p>
+</div>
+<div class="contact-container" style="">
+<div class="contact-info animate-in" data-animate="" style="">
+<h3 class="" style="">Parliamo del tuo progetto</h3>
+<p class="">Hai un manoscritto nel cassetto? Un fumetto che aspetta di essere completato? Una sceneggiatura che non sai come sviluppare? Scrivimi.</p>
+<p class="">La prima chiacchierata è gratuita. Prometto di essere sincero (a volte crudo, ma sincero).</p>
+<p class=""><strong>P.S. I prezzi sono trasparenti e onesti. Non troverai sorprese in fattura. Davvero.</strong></p>
+<div class="contact-methods" style="">
+<div class="contact-method" style="">
+<svg class="lucide lucide-mail" data-lucide="mail" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect height="16" rx="2" width="20" x="2" y="4"></rect></svg>
+<div class="contact-method-text">
+<strong>Email</strong>
+<span class=""><ul style="caret-color: rgba(255, 255, 255, 0.9); color: rgba(255, 255, 255, 0.9); text-decoration: none;"><li class="" style="margin-bottom: 12px;"><span class="mail-obf"><span class="email-reveal" data-user="editoso" data-domain="icloud.com">
+  <button type="button" class="email-reveal-btn">Mostra email</button>
+  <span class="email-reveal-value" aria-live="polite"></span>
+  <button type="button" class="email-copy-btn" style="display:none;">Copia</button>
+</span></span></li></ul></span>
+</div>
+</div>
+<div class="contact-method" style=""><img alt="" height="24" src="https://cdn.simpleicons.org/whatsapp/25D366" style="width:24px;height:24px;display:inline-block;" width="24"/>
+<div class="contact-method-text">
+<strong>WhatsApp</strong>
+<span class=""><a href="https://wa.me/393403480338" rel="noopener" target="_blank">Scrivimi</a></span>
+</div>
+</div>
+<div class="contact-method" style="">
+<svg class="lucide lucide-clock" data-lucide="clock" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+<div class="contact-method-text">
+<strong>Tempo di Risposta</strong>
+<span class="">Entro 24-48h</span>
+</div>
+</div>
+<div class="contact-method"><img alt="" height="24" src="https://cdn.simpleicons.org/instagram/E8A832" style="width:24px;height:24px;display:inline-block;" width="24"/><div class="contact-method-text"><strong>Instagram</strong><span><a href="https://www.instagram.com/" rel="noopener" target="_blank">Vai al profilo</a></span></div></div></div>
+</div>
+<div class="contact-form animate-in" data-animate="" style="">
+<h3 class="">Mandami il tuo progetto</h3>
+<form name="contatti" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/grazie.html">
+  <input type="hidden" name="form-name" value="contatti" />
+  <p style="display:none;">
+    <label>Non compilare questo campo: <input name="bot-field" /></label>
+  </p>
+
+<div class="form-group">
+<label for="name">Il tuo nome *</label>
+<input id="name" name="name" required="" style="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email" style="">Email *</label>
+<input id="email" name="email" required="" style="" type="email"/>
+</div>
+<div class="form-group">
+<label for="project-type">Tipo di progetto *</label>
+<select id="project-type" name="project-type" required="">
+<option value="">Seleziona...</option>
+<option value="correzione">Correzione di bozze</option>
+<option value="editing">Editing (stilistico/strutturale)</option>
+<option value="valutazione">Valutazione manoscritto</option>
+<option value="impaginazione">Impaginazione libro</option>
+<option value="lettering">Lettering fumetto</option>
+<option value="consulenza">Consulenza / Non so ancora</option>
+<option value="editore">Sono un'editrice/editore</option>
+<option value="altro">Altro</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Raccontami del tuo progetto *</label>
+<textarea id="message" name="message" placeholder="Di cosa parla? A che punto sei? Cosa vorresti ottenere? Sii onesto." required=""></textarea>
+</div>
+<div class="form-group">
+<label for="budget">Budget (opzionale)</label>
+<select id="budget" name="budget">
+<option value="">Seleziona...</option>
+<option value="under200">Meno di 200€</option>
+<option value="200-500">200-500€</option>
+<option value="500-1000">500-1000€</option>
+<option value="over1000">Più di 1000€</option>
+<option value="unsure">Non so ancora</option>
+</select>
+</div>
+<div class="form-actions">
+<button class="btn btn-primary" style="" type="submit">
+<svg class="lucide lucide-send" data-lucide="send" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+              Invia il messaggio
+            </button>
+<a class="btn btn-primary whatsapp-btn" href="https://wa.me/393403480338" target="_blank" rel="noopener">
+  Scrivimi su WhatsApp
+</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer" style="">
+<div class="container">
+<div class="footer-content" style="">
+<div class="footer-brand" style="">
+<h3 class="">EdiToso</h3>
+<p class="">Servizi letterari professionali per autori e editori. Prezzi chiari, feedback onesto, massima serietà.</p>
+<div class="social-links">
+<a aria-label="LinkedIn" class="social-link" href="https://www.linkedin.com/">
+<svg class="lucide lucide-linkedin" data-lucide="linkedin" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+</a>
+<a aria-label="Instagram" class="social-link" href="https://www.instagram.com/">
+<svg class="lucide lucide-instagram" data-lucide="instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+</a>
+<a aria-label="YouTube" class="social-link" href="https://www.youtube.com/" target="_blank" rel="noopener">
+  <i data-lucide="youtube" aria-hidden="true"></i>
+</a>
+</div>
+</div>
+<div class="footer-links" style="">
+<h4 class="">Servizi</h4>
+<ul style="">
+<li class=""><a class="" href="#servizi">Correzione bozze</a></li>
+<li class="" style=""><a class="" href="#servizi">Editing</a></li>
+<li class="" style=""><a class="" href="#servizi" style="">Valutazione</a></li>
+<li class=""><a class="" href="#servizi">Impaginazione</a></li>
+<li class=""><a class="" href="#servizi">Lettering</a></li>
+</ul>
+</div>
+<div class="footer-links" style="">
+<h4 class="" style="">Per chi</h4>
+<ul style="">
+<li class="" style=""><a class="" href="#perchi" style="">Self-publisher</a></li>
+<li class=""><a class="" href="#perchi">Fumettisti</a></li>
+<li class=""><a class="" href="#perchi">Autori di genere</a></li>
+<li class=""><a class="" href="#perchi">Esordienti</a></li>
+<li class=""><a class="" href="#perchi">Case editrici</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4 class="">Info</h4>
+<ul>
+<li class=""><a class="" href="#prezzi">Prezzi</a></li>
+<li class=""><a class="" href="#faq">FAQ</a></li>
+<li class=""><a class="" href="#contatti">Contatti</a></li>
+<li class=""><span class="mail-obf"><span class="email-reveal" data-user="editoso" data-domain="icloud.com">
+  <button type="button" class="email-reveal-btn">Mostra email</button>
+  <span class="email-reveal-value" aria-live="polite"></span>
+  <button type="button" class="email-copy-btn" style="display:none;">Copia</button>
+</span></span></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="">© 2026 EdiToso - Simone Toso. Tutti i diritti riservati.</p>
+</div>
+</div>
+</footer>
+</main>
+<script>
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Auto-injected agent type (safe global)
+const agentType = "website";
+// Global fallback for any window references
+window.__CS_AGENT_TYPE = "website";
+
+(function() {
+  'use strict';
+
+  function init() {
+    console.log('EdiToso website initialized');
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('nav-open');
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          const isOpen = mobileMenu.classList.contains('nav-open');
+          icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        }
+      });
+
+      // Close menu when clicking a link
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('nav-open')) {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        }
+      });
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      const question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function() {
+          const wasActive = item.classList.contains('active');
+          
+          // Close all other items
+          faqItems.forEach(function(otherItem) {
+            otherItem.classList.remove('active');
+          });
+          
+          // Toggle current item
+          if (!wasActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const href = link.getAttribute('href');
+        if (href && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations (below-fold content only)
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Only observe elements with data-animate attribute (below-fold content)
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        observer.observe(element);
+      });
+    } else {
+      // Fallback: show all animated elements immediately
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        element.classList.add('animate-in');
+      });
+    }
+
+    // Netlify Forms: lascia il submit nativo (niente mailto)
+
+
+    // Initialize Lucide icons
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+// Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Auto-injected agent type (safe global)
+const agentType = "website";
+// Global fallback for any window references
+window.__CS_AGENT_TYPE = "website";
+
+(function() {
+  'use strict';
+
+  function init() {
+    console.log('EdiToso website initialized');
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('nav-open');
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          const isOpen = mobileMenu.classList.contains('nav-open');
+          icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        }
+      });
+
+      // Close menu when clicking a link
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('nav-open')) {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        }
+      });
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      const question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function() {
+          const wasActive = item.classList.contains('active');
+          
+          // Close all other items
+          faqItems.forEach(function(otherItem) {
+            otherItem.classList.remove('active');
+          });
+          
+          // Toggle current item
+          if (!wasActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const href = link.getAttribute('href');
+        if (href && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations (below-fold content only)
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Only observe elements with data-animate attribute (below-fold content)
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        observer.observe(element);
+      });
+    } else {
+      // Fallback: show all animated elements immediately
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        element.classList.add('animate-in');
+      });
+    }
+
+    // Netlify Forms: lascia il submit nativo (niente mailto)
+
+
+    // Initialize Lucide icons
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+// Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Auto-injected agent type (safe global)
+const agentType = "website";
+// Global fallback for any window references
+window.__CS_AGENT_TYPE = "website";
+
+(function() {
+  'use strict';
+
+  function init() {
+    console.log('EdiToso website initialized');
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('nav-open');
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          const isOpen = mobileMenu.classList.contains('nav-open');
+          icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        }
+      });
+
+      // Close menu when clicking a link
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('nav-open')) {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        }
+      });
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      const question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function() {
+          const wasActive = item.classList.contains('active');
+          
+          // Close all other items
+          faqItems.forEach(function(otherItem) {
+            otherItem.classList.remove('active');
+          });
+          
+          // Toggle current item
+          if (!wasActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const href = link.getAttribute('href');
+        if (href && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations (below-fold content only)
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Only observe elements with data-animate attribute (below-fold content)
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        observer.observe(element);
+      });
+    } else {
+      // Fallback: show all animated elements immediately
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        element.classList.add('animate-in');
+      });
+    }
+
+    // Netlify Forms: lascia il submit nativo (niente mailto)
+
+
+    // Initialize Lucide icons
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+// Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      
+  (function() {
+    // Create DOM-ready wrapper that works in iframes and standalone
+    function createDOMContentLoadedWrapper() {
+      const originalAddEventListener = document.addEventListener;
+      document.addEventListener = function(event, handler, options) {
+        if (event === 'DOMContentLoaded' && document.readyState !== 'loading') {
+          // DOM already loaded, execute immediately
+          setTimeout(handler, 0);
+          return;
+        }
+        return originalAddEventListener.call(this, event, handler, options);
+      };
+    }
+
+    // Set up wrapper if DOM is already loaded
+    if (document.readyState !== 'loading') {
+      createDOMContentLoadedWrapper();
+    }
+
+    // Execute custom JavaScript
+    try {
+      // Auto-injected agent type (safe global)
+const agentType = "website";
+// Global fallback for any window references
+window.__CS_AGENT_TYPE = "website";
+
+(function() {
+  'use strict';
+
+  function init() {
+    console.log('EdiToso website initialized');
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('nav-open');
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          const isOpen = mobileMenu.classList.contains('nav-open');
+          icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        }
+      });
+
+      // Close menu when clicking a link
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('nav-open')) {
+          mobileMenu.classList.remove('nav-open');
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) {
+              window.lucide.createIcons();
+            }
+          }
+        }
+      });
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      const question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function() {
+          const wasActive = item.classList.contains('active');
+          
+          // Close all other items
+          faqItems.forEach(function(otherItem) {
+            otherItem.classList.remove('active');
+          });
+          
+          // Toggle current item
+          if (!wasActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const href = link.getAttribute('href');
+        if (href && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations (below-fold content only)
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Only observe elements with data-animate attribute (below-fold content)
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        observer.observe(element);
+      });
+    } else {
+      // Fallback: show all animated elements immediately
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach(function(element) {
+        element.classList.add('animate-in');
+      });
+    }
+
+    // Netlify Forms: lascia il submit nativo (niente mailto)
+
+
+    // Initialize Lucide icons
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+
+      // Re-initialize Lucide icons after custom JS
+      function reinitLucideAfterJS() {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+          try {
+            lucide.createIcons();
+          } catch (error) {
+            console.warn('⚠️ Failed to initialize Lucide after JS:', error);
+          }
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(reinitLucideAfterJS, 100);
+      } else {
+        document.addEventListener('DOMContentLoaded', reinitLucideAfterJS);
+      }
+    } catch (error) {
+      console.error('Error executing custom JavaScript:', error);
+    }
+  })();
+  
+    </script><script data-faq-fallback="true">
+(function(){
+  function ready(fn){
+    if (document.readyState !== 'loading') return fn();
+    window.addEventListener('DOMContentLoaded', fn, { once: true });
+  }
+  ready(function(){
+    // Event delegation: works even if FAQ items are added later
+    document.addEventListener('click', function(e){
+      var q = e.target.closest && e.target.closest('.faq-question');
+      if (!q) return;
+      e.preventDefault();
+      var item = q.closest('.faq-item');
+      if (!item) return;
+
+      var list = item.parentElement;
+      var wasActive = item.classList.contains('active');
+
+      // Close all open items in the same FAQ list
+      if (list) {
+        list.querySelectorAll('.faq-item.active').forEach(function(open){
+          open.classList.remove('active');
+        });
+      }
+
+      if (!wasActive) item.classList.add('active');
+    }, false);
+  });
+})();
+</script><script>
+  (function(){
+    function setupEmailReveal(root){
+      const btn = root.querySelector('.email-reveal-btn');
+      const val = root.querySelector('.email-reveal-value');
+      const copy = root.querySelector('.email-copy-btn');
+      const user = root.getAttribute('data-user') || '';
+      const domain = root.getAttribute('data-domain') || '';
+      const email = (user && domain) ? (user + '@' + domain) : '';
+      let shown = false;
+
+      function reveal(){
+        if (!email) return;
+        if (!shown){
+          val.textContent = email;
+          copy.style.display = 'inline-flex';
+          btn.textContent = 'Nascondi email';
+          shown = true;
+        } else {
+          val.textContent = '';
+          copy.style.display = 'none';
+          btn.textContent = 'Mostra email';
+          shown = false;
+        }
+      }
+
+      async function copyEmail(){
+        if (!email) return;
+        try{
+          await navigator.clipboard.writeText(email);
+          const old = copy.textContent;
+          copy.textContent = 'Copiato!';
+          setTimeout(()=>{ copy.textContent = old; }, 900);
+        } catch(e){
+          // fallback: select text
+          const ta = document.createElement('textarea');
+          ta.value = email;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch(_){}
+          document.body.removeChild(ta);
+          const old = copy.textContent;
+          copy.textContent = 'Copiato!';
+          setTimeout(()=>{ copy.textContent = old; }, 900);
+        }
+      }
+
+      btn.addEventListener('click', reveal);
+      copy.addEventListener('click', copyEmail);
+    }
+
+    document.querySelectorAll('.email-reveal').forEach(setupEmailReveal);
+  })();
+</script>
 </body>
 </html>

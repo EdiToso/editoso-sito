@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grazie! | EdiToso</title>
+  <meta name="description" content="Messaggio inviato con successo." />
+  <meta name="robots" content="noindex,follow" />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:rgba(15,22,32,.70);
+      --text:#e9eef5;
+      --muted:rgba(233,238,245,.72);
+      --line:rgba(233,238,245,.12);
+      --accent:#7ee787;
+      --accent2:#58a6ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 800px at 20% -10%, rgba(88,166,255,.18), transparent 55%),
+        radial-gradient(1200px 800px at 80% 0%, rgba(126,231,135,.14), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      width:min(860px, 100%);
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius:18px;
+      padding:24px;
+      text-align:center;
+      backdrop-filter: blur(8px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-bottom: 12px;
+    }
+    .dot{
+      width:12px;height:12px;border-radius:999px;background:var(--accent);
+      display:inline-block; box-shadow:0 0 0 6px rgba(126,231,135,.12);
+    }
+    .name{ font-weight:800; letter-spacing:.2px; font-size:18px; }
+    h1{
+      margin: 8px 0 10px;
+      font-size: clamp(28px, 4.2vw, 46px);
+      line-height: 1.12;
+    }
+    p{
+      margin: 10px auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      max-width: 64ch;
+    }
+    .row{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+    a.btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius: 12px;
+      text-decoration:none;
+      border:1px solid rgba(233,238,245,.14);
+      background: rgba(11,15,20,.35);
+      color: var(--text);
+      font-weight: 800;
+    }
+    a.btn:hover{ border-color: rgba(233,238,245,.24); }
+    a.btn.primary{
+      border-color: rgba(88,166,255,.35);
+      background: rgba(88,166,255,.12);
+    }
+    small{
+      display:block;
+      margin-top: 14px;
+      color: rgba(233,238,245,.55);
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-label="Grazie">
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="name">EdiToso</span>
+    </div>
+
+    <h1>Grazie! Messaggio inviato.</h1>
+    <p>Ho ricevuto la tua richiesta e ti risponderò appena possibile.</p>
+
+    <div class="row">
+      <a class="btn primary" href="index.html#contatti">Torna al sito</a>
+      <a class="btn" href="blog.html">Vai al blog</a>
+    </div>
+
+    <small>© EdiToso</small>
+  </main>
+</body>
+</html>
